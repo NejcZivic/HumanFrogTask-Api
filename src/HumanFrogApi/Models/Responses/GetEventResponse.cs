@@ -1,6 +1,6 @@
 namespace HumanFrogApi.Models.Responses
 {
-    public class EventResponse
+    public class GetEventResponse
     {
         public required int Id { get; set; }
         public required string Naziv { get; set; }

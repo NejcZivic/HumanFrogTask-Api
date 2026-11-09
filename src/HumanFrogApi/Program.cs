@@ -17,6 +17,10 @@ var app = builder.Build();
 if (app.Environment.IsDevelopment())
 {
     app.MapOpenApi();
+
+    using var scope = app.Services.CreateScope();
+    var context = scope.ServiceProvider.GetRequiredService<HumanFrogDbContext>();
+    await DbSeeder.SeedAsync(context);
 }
 
 app.UseHttpsRedirection();
